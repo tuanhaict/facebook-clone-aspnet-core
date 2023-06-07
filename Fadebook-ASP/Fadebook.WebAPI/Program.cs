@@ -8,6 +8,7 @@ using Fadebook.WebAPI.Extensions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using static Fadebook.WebAPI.Extensions.ServiceExtension;
+using static Fadebook.WebAPI.Extensions.AppExtension;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

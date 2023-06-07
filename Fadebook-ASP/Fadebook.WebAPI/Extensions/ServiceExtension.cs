@@ -82,32 +82,6 @@ namespace Fadebook.WebAPI.Extensions
                 };
             });
         }
-        public static void ConfigureErrorHandler(this IApplicationBuilder app)
-        {
-            app.UseExceptionHandler(currentApp =>
-            {
-                currentApp.Run(async context =>
-                {
-                    context.Response.ContentType = "application/json";
-                    var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
-                    if (contextFeature != null)
-                    {
-                        Console.WriteLine($"Something went wrong: ${contextFeature.Error}");
-                        CustomError appError;
-                        if (contextFeature.Error is BaseException)
-                        {
-                            Console.WriteLine("hello");
-                            var exception = (BaseException)contextFeature.Error;
-                            appError = new CustomError { Message = exception.Message, StatusCode = exception.StatusCode };
-                        }
-                        else appError = new CustomError { Message = "Internal server error", StatusCode = (int)StatusCodes.Status500InternalServerError };
-                       
-                        context.Response.StatusCode = appError.StatusCode;
-                        await context.Response.WriteAsync(appError.ToString());
-                    }
-
-                });
-            });
-        }
+        
     }
 }
