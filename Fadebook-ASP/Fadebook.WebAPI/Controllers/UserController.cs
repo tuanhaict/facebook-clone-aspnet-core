@@ -3,6 +3,7 @@ using Fadebook.Application.Models.IntroductionModel;
 using Fadebook.Application.Models.UserModel;
 using Fadebook.Application.Services.Interfaces;
 using Fadebook.Domain.Exceptions;
+using Fadebook.Infracstructure.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -1,6 +1,5 @@
 ﻿using Fadebook.Application.Models.ModelBinder;
 using Fadebook.Domain.Entities.Enums;
-using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -26,7 +25,6 @@ namespace Fadebook.Application.Models.AuthModel
         [Required]
         public Gender Gender { get; set; }
         [Required]
-        [ModelBinder(BinderType = typeof(DateModelBinder))]
         public DateTime DateOfBirth { get; set; }
     }
 }

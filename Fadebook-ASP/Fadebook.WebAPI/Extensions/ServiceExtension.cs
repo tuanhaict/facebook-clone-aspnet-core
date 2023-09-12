@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using Fadebook.Domain.Exceptions;
 using Fadebook.Application.Interfaces;
 using Fadebook.Infracstructure.Uploads;
+using Fadebook.Infracstructure.AdapterModel;
 
 namespace Fadebook.WebAPI.Extensions
 {
@@ -32,7 +33,7 @@ namespace Fadebook.WebAPI.Extensions
         }
         public static void ConfigureIdentity(this IServiceCollection services) 
         {
-            services.AddIdentity<User, IdentityRole<Guid>>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
+            services.AddIdentity<AppUser, IdentityRole<Guid>>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireNonAlphanumeric = true;

@@ -2,6 +2,7 @@
 using Fadebook.Application.Models.PostModel;
 using Fadebook.Application.Services.Interfaces;
 using Fadebook.Domain.Exceptions;
+using Fadebook.Infracstructure.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

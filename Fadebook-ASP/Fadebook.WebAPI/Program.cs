@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using static Fadebook.WebAPI.Extensions.ServiceExtension;
 using static Fadebook.WebAPI.Extensions.AppExtension;
+using Fadebook.Infracstructure;
+using Fadebook.Application;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,7 +23,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"), 
     b=> b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)));
 builder.Services.ConfigureCors();
-builder.Services.AddAutoMapper(typeof(ServiceManager).Assembly);
+builder.Services.AddAutoMapper(typeof(ApplicationReference).Assembly, typeof(InfrastructureReference).Assembly);
 builder.Services.ConfigureIdentity();
 builder.Services.ConfigureDependencies();
 builder.Services.ConfigureJwt(builder.Configuration);

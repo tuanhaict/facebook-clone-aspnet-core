@@ -1,4 +1,5 @@
 ﻿using Fadebook.Application.Interfaces.Repositories.Base;
+using Fadebook.Application.Models.AuthModel;
 using Fadebook.Domain.Entities;
 using System;
 using System.Collections.Generic;

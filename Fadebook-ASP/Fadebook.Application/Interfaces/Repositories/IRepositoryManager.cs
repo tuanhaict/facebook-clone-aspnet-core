@@ -14,6 +14,7 @@ namespace Fadebook.Application.Interfaces.Repositories
         public IReactionRepository Reaction { get; }
         public IIntroductionRepository Introduction { get; }
         public IFriendRepository Friend { get; }
+        public IAuthRepository Auth { get; }
         public Task SaveAsync();
     }
 }

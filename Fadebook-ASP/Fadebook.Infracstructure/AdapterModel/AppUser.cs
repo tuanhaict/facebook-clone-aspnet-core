@@ -1,19 +1,18 @@
-﻿using Fadebook.Domain.Common;
-using Fadebook.Domain.Entities.Enums;
-using Microsoft.AspNetCore.Identity;
+﻿using Fadebook.Domain.Entities.Enums;
+using Fadebook.Domain.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
-namespace Fadebook.Domain.Entities
+namespace Fadebook.Infracstructure.AdapterModel
 {
-    public class User 
+    public class AppUser : IdentityUser<Guid>
     {
-        public Guid Id { get; set; }
         [MaxLength(30)]
         public string FirstName { get; set; }
         [MaxLength(30)]
@@ -28,6 +27,5 @@ namespace Fadebook.Domain.Entities
         public Guid IntroductionId { get; set; }
         public Introduction Introduction { get; set; }
         public ICollection<Post> Posts { get; set; }
-        
     }
 }

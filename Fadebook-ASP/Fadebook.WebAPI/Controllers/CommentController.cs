@@ -1,6 +1,7 @@
 ﻿using Fadebook.Application.Extensions;
 using Fadebook.Application.Models.CommentModel;
 using Fadebook.Application.Services.Interfaces;
+using Fadebook.Infracstructure.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,7 +1,5 @@
 ﻿using Fadebook.Application.Models.TokenModel;
-using Fadebook.Domain.Entities;
 using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -12,11 +10,11 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fadebook.Application.Extensions
+namespace Fadebook.Infracstructure.Extensions
 {
     public static class AuthExtension
     {
-       public static Token GenerateToken(Guid userId, IConfiguration configuration)
+        public static Token GenerateToken(Guid userId, IConfiguration configuration)
         {
             var claims = new Claim[]
             {
@@ -82,6 +80,6 @@ namespace Fadebook.Application.Extensions
             var userId = principal.Claims.ToList().FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
             return Guid.Parse(userId);
         }
-        
+
     }
 }

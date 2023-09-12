@@ -20,10 +20,10 @@ namespace Fadebook.Application.Services
         private readonly Lazy<IUserService> _userService;
         private readonly Lazy<IPostService> _postService;
         private readonly Lazy<ICommentService> _commentService;
-        public ServiceManager(IRepositoryManager repository, IMapper mapper, UserManager<User> userManager, IConfiguration configuration, IUploadService cloudinary)
+        public ServiceManager(IRepositoryManager repository, IMapper mapper, IConfiguration configuration, IUploadService cloudinary)
         {
             _repository = repository;
-            _authService = new Lazy<IAuthService>(() => new AuthService(repository, mapper, userManager,configuration ));
+            _authService = new Lazy<IAuthService>(() => new AuthService(repository, mapper, configuration ));
             _userService = new Lazy<IUserService>(()=> new UserService(repository, mapper, cloudinary));
             _postService = new Lazy<IPostService>(() => new PostService(repository, mapper, cloudinary));
             _commentService = new Lazy<ICommentService>(() => new CommentService(repository, mapper)); 
